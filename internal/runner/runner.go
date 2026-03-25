@@ -357,6 +357,11 @@ func buildProtocolRequest(colReq *collection.Request) *protocol.Request {
 		}
 	}
 
+	// Proxy
+	if colReq.ProxyURL != "" {
+		req.ProxyURL = colReq.ProxyURL
+	}
+
 	// Body
 	if colReq.Body != nil && colReq.Body.Content != "" {
 		req.Body = []byte(colReq.Body.Content)
